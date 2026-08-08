@@ -23,5 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# local Claude Code permissions (session-specific, not shared)
-.claude/settings.local.json
+# Claude Code config (local dev tooling, not part of the site/backend)
+.claude/
+CLAUDE.md
