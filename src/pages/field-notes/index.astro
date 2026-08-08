@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout
+  title="Field Notes"
+  description="Notes on AI, business, and where the two actually meet — from Cedar Wave Advisory."
+>
+  <section class="page-header">
+    <div class="wrap">
+      <p class="eyebrow">Field Notes</p>
+      <h1>Notes from the work</h1>
+      <p class="page-header__intro">
+        Short, plain-language notes on AI, business, and where the two actually meet.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="post-list">
+      {posts.map((post) => (
+        <a class="post-card" href={`/field-notes/${post.id}/`}>
+          <p class="post-card__date">
+            {post.data.date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+          </p>
+          <h2>{post.data.title}</h2>
+          <p class="post-card__desc">{post.data.description}</p>
+          <span class="post-card__link">Read more &rarr;</span>
+        </a>
+      ))}
+      {posts.length === 0 && <p>New notes are on the way — check back soon.</p>}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--forest);
+    color: var(--paper);
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .page-header .eyebrow {
+    color: var(--sand);
+  }
+
+  .page-header h1 {
+    color: var(--paper);
+  }
+
+  .page-header__intro {
+    max-width: 620px;
+    color: var(--sand);
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--accent);
+  }
+
+  .post-card:hover h2 {
+    color: var(--accent);
+  }
+
+  .post-card__date {
+    margin: 0 0 0.4em;
+    font-size: 0.85rem;
+    color: var(--cedar);
+  }
+
+  .post-card h2 {
+    margin-bottom: 0.4em;
+  }
+
+  .post-card__desc {
+    margin-bottom: 0.75em;
+  }
+
+  .post-card__link {
+    font-weight: 500;
+    color: var(--forest);
+  }
+</style>

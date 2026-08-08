@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const differentiators = [
+  'Hands-on, early-access experience with frontier AI (agents, automation) — not theory, not reselling someone else’s playbook',
+  'A triple bottom line lens: financial, social, environmental — success isn’t just revenue',
+  'Strong business fundamentals (MBA-level) as the enabler of effective AI, strategy, and outcomes — not hype',
+  'Local, Victoria/Vancouver Island-rooted — knows the community it serves, scales to org/gov work without losing that grounding',
+];
+---
+
+<Layout
+  title="About"
+  description="Cedar Wave Advisory pairs hands-on frontier AI experience with solid business fundamentals — measuring success across financial, social, and environmental lines."
+>
+  <section class="page-header">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Grounded in place. Built for what's next.</h1>
+    </div>
+  </section>
+
+  <section class="section wrap story">
+    <p>
+      Cedar Wave Advisory was built on a simple idea: the tools driving the next decade of
+      business shouldn't be locked away in big firms and big cities. We bring frontier AI
+      experience — real, hands-on work building agents and automation, not secondhand theory —
+      together with solid business fundamentals, to help small businesses, professionals, and
+      organizations move forward with confidence.
+    </p>
+    <p>
+      We measure success across three lines: financial, social, and environmental — because the
+      right outcome is rarely just the dollar figure.
+    </p>
+  </section>
+
+  <section class="section section--diffs">
+    <div class="wrap">
+      <p class="eyebrow">Why Cedar Wave</p>
+      <h2>What makes this different</h2>
+      <ul class="diffs">
+        {differentiators.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__inner">
+      <h2>Curious if it's a fit?</h2>
+      <p>Start with a free discovery call — no pressure, no jargon.</p>
+      <a href="/contact/" class="btn btn--primary">Get in touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--forest);
+    color: var(--paper);
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .page-header .eyebrow {
+    color: var(--sand);
+  }
+
+  .page-header h1 {
+    color: var(--paper);
+    margin-bottom: 0;
+  }
+
+  .story p {
+    max-width: 680px;
+    font-size: 1.05rem;
+  }
+
+  .section--diffs {
+    background: #fff;
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .diffs {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .diffs li {
+    position: relative;
+    padding-left: 1.5rem;
+    max-width: 680px;
+  }
+
+  .diffs li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .cta {
+    background: var(--cedar);
+    color: var(--paper);
+  }
+
+  .cta__inner {
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .cta h2 {
+    color: var(--paper);
+  }
+
+  .cta p {
+    color: var(--sand);
+    margin-bottom: 1.5rem;
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/field-notes/', label: 'Field Notes' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="/" class="nav__brand" aria-label="Cedar Wave Advisory home">
+      <img src="/logos/logo-lockup.svg" alt="Cedar Wave Advisory" height="40" />
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav__links" aria-label="Primary">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={currentPath === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact/" class="btn btn--primary nav__cta">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    background: var(--paper);
+    border-bottom: 1px solid var(--sand);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .nav__brand img {
+    height: 36px;
+    width: auto;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .nav__links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .nav__links a:hover,
+  .nav__links a[aria-current='page'] {
+    color: var(--forest);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .nav__cta {
+    padding: 0.55rem 1.3rem;
+  }
+
+  .nav__cta:hover {
+    color: var(--paper) !important;
+    border-bottom: none !important;
+  }
+
+  .nav__toggle-input {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .nav__toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--forest);
+  }
+
+  @media (max-width: 780px) {
+    .nav__toggle {
+      display: flex;
+    }
+
+    .nav__links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--sand);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 0.5rem 1.5rem 1.5rem;
+    }
+
+    .nav__links a {
+      width: 100%;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .nav__links a:hover,
+    .nav__links a[aria-current='page'] {
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .nav__cta {
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    .nav__toggle-input:checked ~ .nav__links {
+      display: flex;
+    }
+  }
+</style>

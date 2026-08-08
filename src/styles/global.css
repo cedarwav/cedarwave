@@ -1,0 +1,160 @@
+:root {
+  --forest: #1e3d2b;
+  --cedar: #6b4a30;
+  --accent: #d9752e;
+  --ink: #2a2b27;
+  --sage: #a9b8a6;
+  --mist: #c7d3d3;
+  --sand: #e8dfcf;
+  --paper: #f5f2ea;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  --content-width: 1080px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: var(--forest);
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--forest);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section--tight {
+  padding: 2.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.btn--primary:hover {
+  background: #c0651f;
+  color: var(--paper);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.btn--secondary:hover {
+  background: var(--paper);
+  color: var(--forest);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--forest);
+  border-color: var(--forest);
+}
+
+.btn--outline:hover {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 2.75rem 0;
+  }
+}

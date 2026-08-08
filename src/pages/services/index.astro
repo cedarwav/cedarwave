@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pillars = [
+  {
+    title: 'AI Coaching & Literacy',
+    text: 'One-on-one coaching for individuals and professionals who want to actually understand and use tools like Claude and GPT — in their work, their business, or their own growth. Practical, hands-on, no jargon.',
+  },
+  {
+    title: 'AI & Innovation Advisory',
+    text: 'For organizations: adoption assessments, training-needs analysis, and group training, all through an innovation lens. Find out where AI fits your organization — and where it doesn’t.',
+  },
+  {
+    title: 'Core Business Consulting',
+    text: 'Traditional strategy, operations, and planning support — plus project management for innovation, research, or novel initiatives. The foundation everything else builds on.',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="AI Coaching & Literacy, AI & Innovation Advisory, and Core Business Consulting — practical guidance for individuals, organizations, and businesses on Vancouver Island."
+>
+  <section class="page-header">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h1>Practical guidance, not hype</h1>
+      <p class="page-header__intro">
+        Most AI advice is either hype without substance or theory without application. Cedar Wave
+        Advisory is different: hands-on experience building and running AI agents and automation,
+        paired with real business strategy and operations fundamentals. The result is practical
+        guidance — whether you're an individual learning to work with tools like Claude and GPT,
+        an organization figuring out where AI actually fits, or a business that just needs solid
+        strategy and project management.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="pillars-list">
+      {pillars.map((pillar, i) => (
+        <div class="pillar">
+          <span class="pillar__num">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>{pillar.title}</h2>
+            <p>{pillar.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--pricing">
+    <div class="wrap">
+      <p class="eyebrow">Engagement & pricing</p>
+      <h2>How it works</h2>
+      <p class="pricing__text">
+        Every engagement starts with a free discovery call. From there, pricing is flexible: fixed
+        workshop fees, package pricing, or hourly — whatever fits the scope. Reach out and we'll
+        figure out the right fit together.
+      </p>
+      <a href="/contact/" class="btn btn--primary">Book a discovery call</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--forest);
+    color: var(--paper);
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .page-header .eyebrow {
+    color: var(--sand);
+  }
+
+  .page-header h1 {
+    color: var(--paper);
+  }
+
+  .page-header__intro {
+    max-width: 680px;
+    color: var(--sand);
+    font-size: 1.05rem;
+  }
+
+  .pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .pillar {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    border-bottom: 1px solid var(--sand);
+    padding-bottom: 2.5rem;
+  }
+
+  .pillar:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .pillar__num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--sage);
+  }
+
+  .pillar h2 {
+    margin-bottom: 0.4em;
+  }
+
+  .pillar p {
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  .section--pricing {
+    background: #fff;
+    border-top: 1px solid var(--sand);
+    text-align: center;
+  }
+
+  .pricing__text {
+    max-width: 620px;
+    margin: 1rem auto 1.75rem;
+  }
+
+  @media (max-width: 560px) {
+    .pillar {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+  }
+</style>

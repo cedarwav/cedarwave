@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Book a free discovery call or send Cedar Wave Advisory a message — contact@cedarwave.ca."
+>
+  <section class="page-header">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk</h1>
+      <p class="page-header__intro">
+        Every engagement starts with a free discovery call. Send a note below, or email directly
+        at <a href="mailto:contact@cedarwave.ca">contact@cedarwave.ca</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <form
+      class="form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="New message from cedarwave.ca" />
+      <input type="hidden" name="redirect" value="https://cedarwave.ca/contact/thank-you/" />
+      <input type="checkbox" name="botcheck" class="form__honeypot" tabindex="-1" autocomplete="off" />
+
+      <div class="form__row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form__row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form__row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--primary">Send message</button>
+    </form>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--forest);
+    color: var(--paper);
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .page-header .eyebrow {
+    color: var(--sand);
+  }
+
+  .page-header h1 {
+    color: var(--paper);
+  }
+
+  .page-header__intro {
+    max-width: 600px;
+    color: var(--sand);
+  }
+
+  .page-header__intro a {
+    color: var(--paper);
+  }
+
+  .form {
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form__honeypot {
+    display: none;
+  }
+
+  .form__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form__row label {
+    font-weight: 500;
+    font-size: 0.92rem;
+  }
+
+  .form__row input,
+  .form__row textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.65rem 0.8rem;
+    border: 1.5px solid var(--sand);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+  }
+
+  .form__row input:focus,
+  .form__row textarea:focus {
+    outline: none;
+    border-color: var(--forest);
+  }
+
+  .form button {
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,47 @@
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <img src="/logos/logo-icon.svg" alt="" width="36" height="36" />
+    <p class="footer__text">
+      Cedar Wave Advisory &middot; Victoria, BC<br />
+      <a href="mailto:contact@cedarwave.ca">contact@cedarwave.ca</a>
+    </p>
+    <p class="footer__copy">&copy; {new Date().getFullYear()} Cedar Wave Advisory. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--forest);
+    color: var(--sage);
+    margin-top: 4rem;
+  }
+
+  .footer__inner {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer__text {
+    margin: 0;
+    color: var(--paper);
+  }
+
+  .footer__text a {
+    color: var(--paper);
+    text-decoration: underline;
+  }
+
+  .footer__text a:hover {
+    color: var(--accent);
+  }
+
+  .footer__copy {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--sage);
+  }
+</style>

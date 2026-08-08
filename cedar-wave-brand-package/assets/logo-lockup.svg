@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 110">
+  <g transform="translate(58,55) scale(0.62)">
+    <circle cx="0" cy="0" r="50" fill="#1E3D2B"/>
+    <g stroke="#F5F2EA" stroke-width="2" stroke-linecap="round">
+      <line x1="0" y1="-27" x2="0" y2="-9"/>
+      <line x1="0" y1="-21" x2="-13" y2="-33"/>
+      <line x1="0" y1="-21" x2="13" y2="-33"/>
+      <line x1="0" y1="-14" x2="-11" y2="-24"/>
+      <line x1="0" y1="-14" x2="11" y2="-24"/>
+    </g>
+    <path d="M-30,12 Q-15,1 0,12 T30,12" fill="none" stroke="#F5F2EA" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M-30,21 Q-15,10 0,21 T30,21" fill="none" stroke="#A9B8A6" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <text x="112" y="52" font-family="Fraunces, Georgia, serif" font-size="27" font-weight="600" fill="#2A2B27">Cedar Wave</text>
+  <text x="112" y="74" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="3" fill="#1E3D2B">ADVISORY</text>
+</svg>
