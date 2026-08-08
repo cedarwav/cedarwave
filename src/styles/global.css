@@ -81,11 +81,13 @@ svg {
 }
 
 .section {
-  padding: 4rem 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .section--tight {
-  padding: 2.5rem 0;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .btn {
@@ -155,6 +157,7 @@ svg {
 
 @media (max-width: 640px) {
   .section {
-    padding: 2.75rem 0;
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
   }
 }
