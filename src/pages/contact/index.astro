@@ -19,6 +19,7 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="section wrap">
     <form
+      id="contact-form"
       class="form"
       action="https://api.web3forms.com/submit"
       method="POST"
@@ -44,9 +45,46 @@ import Layout from '../../layouts/Layout.astro';
       </div>
 
       <button type="submit" class="btn btn--primary">Send message</button>
+      <p id="contact-form-error" class="form__error" role="alert" hidden>
+        Something went wrong sending your message. Please email
+        <a href="mailto:contact@cedarwave.ca">contact@cedarwave.ca</a> directly instead.
+      </p>
     </form>
   </section>
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const errorEl = document.getElementById('contact-form-error');
+  const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    errorEl?.setAttribute('hidden', '');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (!response.ok) throw new Error('Form submission failed');
+
+      window.location.href = '/thanks/';
+    } catch {
+      errorEl?.removeAttribute('hidden');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send message';
+      }
+    }
+  });
+</script>
 
 <style>
   .page-header {
@@ -115,5 +153,10 @@ import Layout from '../../layouts/Layout.astro';
     align-self: flex-start;
     border: none;
     cursor: pointer;
+  }
+
+  .form__error {
+    color: var(--cedar);
+    font-size: 0.9rem;
   }
 </style>
